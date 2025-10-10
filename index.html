@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas Organizacionais em TI - Apresentação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --fatec-red: #8B0000;
+            --fatec-dark-red: #6B0000;
+            --fatec-gray: #333333;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            padding: 3rem;
+            display: none;
+            flex-direction: column;
+            position: relative;
+            animation: slideIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--fatec-red) 0%, var(--fatec-dark-red) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(139,0,0,0.3);
+        }
+
+        .slide-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .slide-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slide-content::-webkit-scrollbar-track {
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .slide-content::-webkit-scrollbar-thumb {
+            background: var(--fatec-red);
+            border-radius: 10px;
+        }
+
+        .slide-content h2 {
+            color: var(--fatec-red);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--fatec-red);
+            padding-left: 1rem;
+        }
+
+        .slide-content h3 {
+            color: var(--fatec-dark-red);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--fatec-gray);
+        }
+
+        .slide-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-content li {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            color: var(--fatec-gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(139,0,0,0.1) 0%, rgba(107,0,0,0.05) 100%);
+            border-left: 4px solid var(--fatec-red);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--fatec-red);
+            font-size: 1.2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--fatec-red);
+        }
+
+        .card h4 {
+            color: var(--fatec-red);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: var(--fatec-red);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid var(--fatec-red);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .question-box .question {
+            color: var(--fatec-red);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-box .question::before {
+            content: "❓";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .question-box .answer {
+            color: var(--fatec-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .slide-number {
+            color: var(--fatec-gray);
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background: var(--fatec-red);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(139,0,0,0.3);
+        }
+
+        .nav-button:hover {
+            background: var(--fatec-dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(139,0,0,0.4);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--fatec-red);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .timer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(139,0,0,0.9);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .authors-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .author-item {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1rem;
+            border-left: 3px solid var(--fatec-red);
+        }
+
+        .big-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--fatec-red);
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .emoji-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                width: 95%;
+                height: 90vh;
+                padding: 1.5rem;
+            }
+
+            .slide-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p,
+            .slide-content li {
+                font-size: 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .authors-list {
+                grid-template-columns: 1fr;
+            }
+
+            .timer {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .key-takeaway {
+            background: linear-gradient(135deg, var(--fatec-red) 0%, var(--fatec-dark-red) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(139,0,0,0.3);
+        }
+
+        .key-takeaway h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-takeaway p {
+            color: var(--white);
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="timer" id="timer">⏱️ 00:00</div>
+
+    <div class="presentation-container">
+        <!-- SLIDE 1: CAPA -->
+        <div class="slide active">
+            <div class="slide-header">
+                <h1>🎓 FATEC - Ribeirão Preto</h1>
+                <p>Análise e Desenvolvimento de Sistemas | Administração Geral</p>
+            </div>
+            <div class="slide-content">
+                <h2>Estruturas Organizacionais em Tecnologia</h2>
+                <p style="font-size: 1.5rem; text-align: center; color: var(--fatec-red); margin: 2rem 0;">
+                    Análise da Relação entre Estrutura Organizacional e Desempenho Operacional na Prestação de Serviços de TI
+                </p>
+                
+                <div class="authors-list">
+                    <div class="author-item">Antenor Hugo Pereira Fiuza</div>
+                    <div class="author-item">Juliano Júnior</div>
+                    <div class="author-item">Leandro de Souza Sertório</div>
+                    <div class="author-item">Lucas Malheiros</div>
+                    <div class="author-item">Pedro Aquino</div>
+                    <div class="author-item">Pedro Lucas Araujo da Silva</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <p style="text-align: center;"><strong>Profª Drª Suzana Márcia Marangoni</strong></p>
+                    <p style="text-align: center;">1º Bimestre 2025</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 1 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()" disabled>← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: CONTEXTO E PROBLEMA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>📊 Contexto e Problema</h1>
+                <p>Por que estudar estruturas organizacionais em TI?</p>
+            </div>
+            <div class="slide-content">
+                <h2>O Desafio Atual</h2>
+                
+                <div class="big-number">🤔</div>
+                
+                <p><strong>TI deixou de ser apenas suporte operacional!</strong></p>
+                
+                <div class="highlight-box">
+                    <p>Hoje, a Tecnologia da Informação é um <strong>ativo estratégico</strong> essencial para a competitividade das empresas.</p>
+                </div>
+
+                <h3>A Grande Questão:</h3>
+                <div class="question-box">
+                    <div class="question">Qual estrutura organizacional gera melhor desempenho em serviços de TI?</div>
+                    <div class="answer">
+                        <strong>Estruturas mais rígidas e hierárquicas</strong> OU <strong>estruturas mais flexíveis e colaborativas?</strong>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <span class="emoji-icon">🏢</span>
+                        <h4>Estruturas Mecanicistas</h4>
+                        <p>Hierarquia rígida, processos formalizados, controle centralizado</p>
+                    </div>
+                    <div class="card">
+                        <span class="emoji-icon">🤝</span>
+                        <h4>Estruturas Orgânicas</h4>
+                        <p>Flexibilidade, autonomia, colaboração horizontal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 2 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: METODOLOGIA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>🔬 Metodologia do Estudo</h1>
+                <p>Como foi realizada a pesquisa?</p>
+            </div>
+            <div class="slide-content">
+                <h2>Estudo de Caso Qualitativo</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Artigo analisado:</strong> "Análise da Relação entre a Estrutura Organizacional e o Desempenho Operacional na Prestação de Serviços de TI de Alto Valor Agregado" (GIRALDELI; PICCHIAI, 2015)</p>
+                </div>
+
+                <div class="big-number">4</div>
+                <p style="text-align: center; font-size: 1.3rem; color: var(--fatec-red);"><strong>Projetos de TI analisados em uma empresa de grande porte</strong></p>
+
+                <h3>🎯 Focos da Análise:</h3>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>1️⃣ Classificação dos Clientes</h4>
+                        <p>• Core business dependente de TI</p>
+                        <p>• Core business NÃO dependente de TI</p>
+                    </div>
+                    <div class="card">
+                        <h4>2️⃣ Maturidade das Equipes</h4>
+                        <p>• Profissionais Juniores</p>
+                        <p>• Profissionais Plenos</p>
+                        <p>• Profissionais Seniores</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <h4>3️⃣ Indicadores de Desempenho</h4>
+                    <p><strong>Quantitativos:</strong> Tempo Médio de Atendimento (TMA), Acordo de Nível de Serviço (ANS)</p>
+                    <p><strong>Qualitativos:</strong> Satisfação do cliente, qualidade do atendimento, competência técnica</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 3 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: RESULTADOS - PROJETOS A E B -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>✅ Resultados: Projetos A e B</h1>
+                <p>Estruturas Orgânicas em ação</p>
+            </div>
+            <div class="slide-content">
+                <h2>Projetos com Core Business Dependente de TI</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Contexto:</strong> Bancos e operadoras de cartões - empresas onde TI é essencial para o negócio</p>
+                </div>
+
+                <h3>🏆 Características:</h3>
+                <ul>
+                    <li><strong>Estrutura Orgânica:</strong> Flexível, descentralizada, colaborativa</li>
+                    <li><strong>Equipe:</strong> Menor, mas com profissionais mais experientes (Plenos e Seniores)</li>
+                    <li><strong>Autonomia:</strong> Liberdade para tomada de decisões</li>
+                    <li><strong>Complexidade:</strong> Problemas mais complexos e desafiadores</li>
+                </ul>
+
+                <div class="key-takeaway">
+                    <h3>📈 Resultados Obtidos</h3>
+                    <p><strong>✅ Avaliações mais positivas em TODOS os aspectos</strong></p>
+                    <p>✅ Menor tempo de atendimento</p>
+                    <p>✅ Maior satisfação dos clientes</p>
+                    <p>✅ Melhor competência técnica percebida</p>
+                    <p>✅ Menor esforço percebido para resolver problemas</p>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Por que funcionou tão bem?</div>
+                    <div class="answer">
+                        Profissionais experientes + Autonomia decisória + Estrutura flexível = <strong>Eficiência máxima e clientes satisfeitos!</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 4 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: RESULTADOS - PROJETOS C E D -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>⚠️ Resultados: Projetos C e D</h1>
+                <p>Estruturas Mecanicistas em ação</p>
+            </div>
+            <div class="slide-content">
+                <h2>Projetos com Core Business NÃO Dependente de TI</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Contexto:</strong> Construtoras e indústrias - empresas onde TI é apenas suporte</p>
+                </div>
+
+                <h3>⚙️ Características:</h3>
+                <ul>
+                    <li><strong>Estrutura Mecanicista:</strong> Hierárquica, rígida, centralizada</li>
+                    <li><strong>Equipe:</strong> Maior, mas com mais profissionais juniores</li>
+                    <li><strong>Autonomia:</strong> Limitada, decisões passam pela hierarquia</li>
+                    <li><strong>Complexidade:</strong> Problemas menos complexos</li>
+                </ul>
+
+                <div class="key-takeaway">
+                    <h3>📊 Resultados Obtidos</h3>
+                    <p><strong>⚠️ Avaliações medianas em todos os aspectos</strong></p>
+                    <p>⚠️ Maior tempo de atendimento</p>
+                    <p>⚠️ Satisfação do cliente mediana</p>
+                    <p>⚠️ Competência técnica adequada (mas não excelente)</p>
+                    <p>⚠️ <strong>Alto esforço</strong> percebido para resolver problemas</p>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Por que o desempenho foi inferior?</div>
+                    <div class="answer">
+                        Profissionais menos experientes + Estrutura rígida + Menos autonomia = <strong>Engessamento e processos mais lentos</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 5 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: COMPARAÇÃO DIRETA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>⚖️ Comparação Direta</h1>
+                <p>Orgânico vs Mecanicista</p>
+            </div>
+            <div class="slide-content">
+                <h2>Lado a Lado: O que faz a diferença?</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Critério</th>
+                            <th>Projetos A e B (Orgânicos)</th>
+                            <th>Projetos C e D (Mecanicistas)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Core Business</strong></td>
+                            <td>Dependente de TI</td>
+                            <td>NÃO dependente de TI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estrutura</strong></td>
+                            <td>Orgânica e Flexível</td>
+                            <td>Mecanicista e Rígida</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Equipe</strong></td>
+                            <td>Menor e mais experiente</td>
+                            <td>Maior e menos experiente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autonomia</strong></td>
+                            <td>Alta - decisões descentralizadas</td>
+                            <td>Baixa - decisões centralizadas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tempo de Atendimento</strong></td>
+                            <td>✅ Menor</td>
+                            <td>⚠️ Maior</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Satisfação do Cliente</strong></td>
+                            <td>✅ Alta</td>
+                            <td>⚠️ Mediana</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Esforço Percebido</strong></td>
+                            <td>✅ Baixo</td>
+                            <td>⚠️ Alto</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-takeaway">
+                    <h3>💡 Conclusão Chave</h3>
+                    <p>Estruturas orgânicas são superiores quando TI é estratégica. Estruturas mecanicistas têm seu lugar quando TI é apenas suporte.</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 6 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: TEORIA CLÁSSICA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>📚 Fundamentação Teórica I</h1>
+                <p>Teoria Clássica da Administração</p>
+            </div>
+            <div class="slide-content">
+                <h2>Henri Fayol e Frederick Taylor</h2>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🏛️ Henri Fayol (Teoria Clássica)</h4>
+                        <p><strong>Princípios identificados:</strong></p>
+                        <p>• Hierarquia</p>
+                        <p>• Autoridade e Responsabilidade</p>
+                        <p>• Unidade de Comando</p>
+                        <p>• Disciplina e Ordem</p>
+                    </div>
+                    <div class="card">
+                        <h4>⚙️ Frederick Taylor (Adm. Científica)</h4>
+                        <p><strong>Princípios identificados:</strong></p>
+                        <p>• Padronização de processos</p>
+                        <p>• Especialização de tarefas</p>
+                        <p>• Controle e supervisão</p>
+                        <p>• Eficiência operacional</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Onde aparecem no estudo?</strong></p>
+                    <p>Nos <strong>Projetos C e D</strong> (mecanicistas), observamos claramente os princípios clássicos: hierarquia bem definida, funções delimitadas, processos padronizados e controle vertical.</p>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Essas teorias ainda são relevantes hoje?</div>
+                    <div class="answer">
+                        <strong>Sim!</strong> Estruturas mecanicistas baseadas em Fayol e Taylor ainda são eficientes em contextos onde: 1) TI não é estratégica; 2) Há necessidade de treinar profissionais juniores; 3) Previsibilidade e controle são prioridades.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 7 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: TEORIA NEOCLÁSSICA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>📚 Fundamentação Teórica II</h1>
+                <p>Teoria Neoclássica da Administração</p>
+            </div>
+            <div class="slide-content">
+                <h2>Peter Drucker e a Administração por Objetivos</h2>
+                
+                <div class="card">
+                    <h4>🎯 Princípios Neoclássicos</h4>
+                    <p><strong>• Descentralização:</strong> Delegação de autoridade</p>
+                    <p><strong>• Orientação para Resultados:</strong> Foco em objetivos e metas</p>
+                    <p><strong>• Flexibilidade:</strong> Adaptação às mudanças</p>
+                    <p><strong>• Eficácia:</strong> Capacidade de gerar valor</p>
+                    <p><strong>• Mensuração:</strong> Indicadores de desempenho (KPIs)</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Onde aparecem no estudo?</strong></p>
+                    <p>Nos <strong>Projetos A e B</strong> (orgânicos), vemos claramente: delegação de autoridade, autonomia decisória, comunicação horizontal, foco em resultados (TMA e satisfação do cliente).</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🏛️ Abordagem Clássica</h4>
+                        <p>Controle → Estabilidade → Processos</p>
+                    </div>
+                    <div class="card">
+                        <h4>🔄 Abordagem Neoclássica</h4>
+                        <p>Flexibilidade → Adaptação → Resultados</p>
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Por que a teoria neoclássica é importante para TI?</div>
+                    <div class="answer">
+                        Porque TI estratégica exige <strong>agilidade, inovação e adaptação rápida</strong> - características da abordagem neoclássica. Profissionais de TI precisam autonomia para tomar decisões técnicas complexas em tempo real.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 8 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: TEORIA DA CONTINGÊNCIA -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>📚 Fundamentação Teórica III</h1>
+                <p>Teoria da Contingência</p>
+            </div>
+            <div class="slide-content">
+                <h2>Não existe estrutura ideal universal!</h2>
+                
+                <div class="key-takeaway">
+                    <h3>🔑 Ideia Central</h3>
+                    <p><strong>"A melhor estrutura organizacional depende do contexto"</strong></p>
+                    <p>Não há uma fórmula única - cada situação exige uma configuração diferente</p>
+                </div>
+
+                <h3>📊 Fatores Contingenciais no Estudo:</h3>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>1️⃣ Importância da TI</h4>
+                        <p>Core business depende de TI?</p>
+                        <p><strong>Sim →</strong> Estrutura Orgânica</p>
+                        <p><strong>Não →</strong> Estrutura Mecanicista</p>
+                    </div>
+                    <div class="card">
+                        <h4>2️⃣ Maturidade da Equipe</h4>
+                        <p>Profissionais experientes?</p>
+                        <p><strong>Sim →</strong> Autonomia e flexibilidade</p>
+                        <p><strong>Não →</strong> Hierarquia e treinamento</p>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>3️⃣ Complexidade dos Problemas</h4>
+                        <p>Problemas complexos?</p>
+                        <p><strong>Sim →</strong> Equipes especializadas</p>
+                        <p><strong>Não →</strong> Processos padronizados</p>
+                    </div>
+                    <div class="card">
+                        <h4>4️⃣ Orçamento e Recursos</h4>
+                        <p>Recursos disponíveis?</p>
+                        <p><strong>Alto →</strong> Profissionais experientes</p>
+                        <p><strong>Limitado →</strong> Equipes maiores e juniores</p>
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Como aplicar isso na prática?</div>
+                    <div class="answer">
+                        Analise seu contexto: qual a importância da TI? Qual a maturidade da equipe? Quais os recursos disponíveis? Com base nisso, escolha a estrutura mais adequada - não copie modelos prontos!
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 9 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: PERGUNTAS E RESPOSTAS -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>❓ Perguntas Frequentes</h1>
+                <p>Antecipando suas dúvidas</p>
+            </div>
+            <div class="slide-content">
+                <h2>Dúvidas Comuns Respondidas</h2>
+                
+                <div class="question-box">
+                    <div class="question">1. Estruturas mecanicistas são ruins?</div>
+                    <div class="answer">
+                        <strong>Não!</strong> Elas têm seu lugar. São ideais para: treinar profissionais juniores, contextos onde TI não é estratégica, situações que exigem previsibilidade e controle rigoroso. O problema é usá-las no contexto errado.
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">2. Por que não usar sempre estruturas orgânicas se são melhores?</div>
+                    <div class="answer">
+                        Porque exigem: <strong>1)</strong> Profissionais experientes (mais caros); <strong>2)</strong> Maturidade da equipe; <strong>3)</strong> Orçamento maior; <strong>4)</strong> Cultura organizacional apropriada. Nem toda empresa tem esses recursos.
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">3. Como desenvolver profissionais juniores se não usarmos estruturas hierárquicas?</div>
+                    <div class="answer">
+                        <strong>Excelente pergunta!</strong> Estruturas mecanicistas são ferramentas de <strong>formação</strong>. Juniores precisam de direcionamento, processos claros e supervisão. Com o tempo, à medida que ganham experiência, podem migrar para estruturas mais orgânicas.
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">4. Uma empresa pode ter ambas as estruturas?</div>
+                    <div class="answer">
+                        <strong>Sim!</strong> Muitas organizações usam <strong>estruturas híbridas</strong>: áreas estratégicas de TI com estrutura orgânica, e áreas de suporte com estrutura mecanicista. O segredo é adequar a estrutura ao contexto de cada área.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 10 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: IMPLICAÇÕES PRÁTICAS -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>💼 Implicações Práticas</h1>
+                <p>O que isso significa para nós, futuros profissionais de TI?</p>
+            </div>
+            <div class="slide-content">
+                <h2>Lições para Nossa Carreira</h2>
+                
+                <div class="key-takeaway">
+                    <h3>🎯 Mensagem Principal</h3>
+                    <p><strong>Competência técnica NÃO É SUFICIENTE!</strong></p>
+                    <p>Sucesso em TI = Habilidades Técnicas + Conhecimento Administrativo</p>
+                </div>
+
+                <h3>📋 O que aprendemos:</h3>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>✅ Para VOCÊ como profissional:</h4>
+                        <p>• Busque crescer em senioridade para ter mais autonomia</p>
+                        <p>• Entenda que estruturas rígidas podem ser oportunidades de aprendizado</p>
+                        <p>• Desenvolva também habilidades gerenciais</p>
+                        <p>• Adapte-se ao contexto organizacional</p>
+                    </div>
+                    <div class="card">
+                        <h4>✅ Para VOCÊ como gestor:</h4>
+                        <p>• Avalie o contexto antes de escolher a estrutura</p>
+                        <p>• Considere a maturidade da equipe</p>
+                        <p>• Use indicadores para medir desempenho</p>
+                        <p>• Seja flexível e adapte quando necessário</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>💡 Insight Importante:</strong> Muitos projetos de TI falham não por falta de competência técnica, mas por <strong>problemas de estrutura organizacional e gestão</strong>. Entender de administração te diferencia no mercado!</p>
+                </div>
+
+                <div class="question-box">
+                    <div class="question">Como usar esse conhecimento no dia a dia?</div>
+                    <div class="answer">
+                        <strong>1.</strong> Observe a estrutura organizacional onde você trabalha/estagia;<br>
+                        <strong>2.</strong> Identifique se ela é adequada ao contexto;<br>
+                        <strong>3.</strong> Adapte seu comportamento: em estruturas rígidas, siga processos; em flexíveis, tome iniciativa;<br>
+                        <strong>4.</strong> Proponha melhorias baseadas em evidências.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 11 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: CONCLUSÕES -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>🎯 Conclusões</h1>
+                <p>Principais takeaways da apresentação</p>
+            </div>
+            <div class="slide-content">
+                <h2>O que concluímos?</h2>
+                
+                <div class="key-takeaway">
+                    <h3>💎 Conclusão Principal</h3>
+                    <p><strong>NÃO EXISTE ESTRUTURA ORGANIZACIONAL IDEAL UNIVERSAL</strong></p>
+                    <p>A escolha depende do contexto: importância da TI, maturidade da equipe, recursos disponíveis</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🏆 Estruturas Orgânicas</h4>
+                        <p><strong>Quando usar:</strong></p>
+                        <p>• TI é estratégica para o negócio</p>
+                        <p>• Equipe madura e experiente</p>
+                        <p>• Necessidade de agilidade</p>
+                        <p>• Orçamento disponível</p>
+                        <p><strong>Resultado:</strong> Alta performance e satisfação</p>
+                    </div>
+                    <div class="card">
+                        <h4>⚙️ Estruturas Mecanicistas</h4>
+                        <p><strong>Quando usar:</strong></p>
+                        <p>• TI é apenas suporte</p>
+                        <p>• Equipe júnior em formação</p>
+                        <p>• Necessidade de previsibilidade</p>
+                        <p>• Orçamento limitado</p>
+                        <p><strong>Resultado:</strong> Controle e desenvolvimento</p>
+                    </div>
+                </div>
+
+                <h3>📚 Fundamentos Teóricos Validados:</h3>
+                <ul>
+                    <li><strong>Fayol e Taylor:</strong> Ainda relevantes em contextos mecanicistas</li>
+                    <li><strong>Drucker e Neoclássicos:</strong> Essenciais para TI estratégica</li>
+                    <li><strong>Teoria da Contingência:</strong> O contexto determina a melhor escolha</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p style="text-align: center; font-size: 1.3rem;"><strong>🎓 Para nós, estudantes de ADS:</strong></p>
+                    <p style="text-align: center;">O profissional completo domina <strong>TECNOLOGIA + GESTÃO</strong></p>
+                    <p style="text-align: center;">Esta é a combinação que te destaca no mercado!</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="font-size: 1.5rem; color: var(--fatec-red);"><strong>Obrigado pela atenção! 🎉</strong></p>
+                    <p style="font-size: 1.2rem;">Perguntas?</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 12 de 12</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()" disabled>Próximo →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let startTime = Date.now();
+        let timerInterval;
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const minutes = Math.floor(elapsed / 60000);
+            const seconds = Math.floor((elapsed % 60000) / 1000);
+            document.getElementById('timer').textContent = 
+                `⏱️ ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            currentSlide = index;
+            updateProgress();
+            
+            // Update navigation buttons
+            const prevButtons = document.querySelectorAll('.slide .nav-button:first-of-type');
+            const nextButtons = document.querySelectorAll('.slide .nav-button:last-of-type');
+            
+            prevButtons.forEach((btn, i) => {
+                btn.disabled = (currentSlide === 0);
+            });
+            
+            nextButtons.forEach((btn, i) => {
+                btn.disabled = (currentSlide === totalSlides - 1);
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                showSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // Touch navigation for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+
+        // Initialize
+        showSlide(0);
+        updateProgress();
+        
+        // Start timer
+        timerInterval = setInterval(updateTimer, 1000);
+        
+        // Prevent accidental page refresh
+        window.addEventListener('beforeunload', (e) => {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</body>
+</html>
