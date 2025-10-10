@@ -52,7 +52,7 @@
             padding: 2.5rem;
             display: none;
             flex-direction: column;
-            position: relative;
+            position: absolute;
             animation: slideIn 0.5s ease;
         }
 
@@ -349,15 +349,22 @@
             }
 
             .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100vw;
                 height: 100vh;
                 padding: 0;
                 margin: 0;
                 border-radius: 0;
                 max-width: 100vw;
-                display: flex;
+                display: none;
                 flex-direction: column;
                 overflow: hidden;
+            }
+
+            .slide.active {
+                display: flex;
             }
 
             .slide-header {
