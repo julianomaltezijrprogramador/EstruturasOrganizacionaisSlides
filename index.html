@@ -24,6 +24,10 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             overflow: hidden;
             height: 100vh;
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .presentation-container {
@@ -329,35 +333,323 @@
 
         @media (max-width: 768px) {
             .slide {
-                width: 95%;
-                height: 90vh;
-                padding: 1.5rem;
+                width: 100%;
+                height: 100vh;
+                padding: 1rem;
+                padding-bottom: 0.5rem;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .slide-header {
+                padding: 1rem 1.2rem;
+                margin-bottom: 1rem;
+                border-radius: 10px;
             }
 
             .slide-header h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .slide-header p {
+                font-size: 0.9rem;
+            }
+
+            .slide-content {
+                padding-right: 0.5rem;
+                max-height: calc(100vh - 240px);
+                overflow-y: auto;
             }
 
             .slide-content h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+            }
+
+            .slide-content h3 {
+                font-size: 1.2rem;
+                margin: 1rem 0 0.6rem 0;
             }
 
             .slide-content p,
             .slide-content li {
                 font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 0.6rem;
+            }
+
+            .slide-content ul {
+                margin-left: 1.2rem;
+                margin-bottom: 1rem;
             }
 
             .grid-2 {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .authors-list {
                 grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .author-item {
+                padding: 0.8rem;
+                font-size: 0.95rem;
             }
 
             .timer {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.8rem;
+                top: 10px;
+                right: 10px;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .card p {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .highlight-box {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .highlight-box strong {
                 font-size: 1rem;
-                padding: 0.5rem 1rem;
+            }
+
+            .highlight-box p {
+                font-size: 0.95rem;
+            }
+
+            .question-box {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .question-box .question {
+                font-size: 1.05rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .question-box .question::before {
+                font-size: 1.2rem;
+            }
+
+            .question-box .answer {
+                font-size: 0.95rem;
+            }
+
+            .big-number {
+                font-size: 3rem;
+                margin: 1.5rem 0;
+            }
+
+            .emoji-icon {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .key-takeaway {
+                padding: 1.2rem;
+                margin: 1rem 0;
+            }
+
+            .key-takeaway h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .key-takeaway p {
+                font-size: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+                margin: 1rem 0;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.6rem 0.4rem;
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.9rem;
+            }
+
+            .slide-footer {
+                margin-top: 0.8rem;
+                padding-top: 0.8rem;
+                padding-bottom: 0.5rem;
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+                background: var(--white);
+                position: relative;
+                z-index: 10;
+            }
+
+            .slide-number {
+                font-size: 0.85rem;
+                white-space: nowrap;
+                min-width: 80px;
+            }
+
+            .navigation {
+                display: flex;
+                gap: 0.5rem;
+                flex: 1;
+                justify-content: flex-end;
+            }
+
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                min-width: 100px;
+            }
+
+            .progress-bar {
+                height: 4px;
+            }
+
+            /* Ajustes para scrolling no mobile */
+            .slide-content {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Ocultar scrollbar mas manter funcionalidade */
+            .slide-content::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            /* Melhorar área de toque dos botões */
+            button {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            /* Ajustar tabelas para mobile */
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding-bottom: 0.3rem;
+            }
+
+            .slide-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .slide-header p {
+                font-size: 0.8rem;
+            }
+
+            .slide-content {
+                max-height: calc(100vh - 220px);
+            }
+
+            .slide-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .slide-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .slide-content p,
+            .slide-content li {
+                font-size: 0.95rem;
+            }
+
+            .nav-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                min-width: 90px;
+            }
+
+            .slide-number {
+                font-size: 0.8rem;
+                min-width: 70px;
+            }
+
+            .timer {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .big-number {
+                font-size: 2.5rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.3rem;
+            }
+
+            .slide-footer {
+                margin-top: 0.5rem;
+                padding-top: 0.6rem;
+                padding-bottom: 0.3rem;
+            }
+        }
+
+        /* Orientação paisagem no mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .slide {
+                height: 100vh;
+                overflow-y: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .slide-header {
+                padding: 0.8rem 1rem;
+            }
+
+            .slide-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .slide-header p {
+                font-size: 0.85rem;
+            }
+
+            .timer {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.7rem;
+            }
+
+            .slide-content {
+                max-height: calc(100vh - 200px);
+            }
+
+            .slide-footer {
+                padding-bottom: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -1080,25 +1372,37 @@
             }
         });
 
-        // Touch navigation for mobile
+        // Touch navigation for mobile - improved
         let touchStartX = 0;
         let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
 
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-        });
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
             handleSwipe();
-        });
+        }, { passive: true });
 
         function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                nextSlide();
-            }
-            if (touchEndX > touchStartX + 50) {
-                prevSlide();
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+            
+            // Apenas detectar swipe horizontal se o movimento vertical for pequeno
+            if (diffY < 50) {
+                if (diffX > 75) {
+                    // Swipe para esquerda - próximo slide
+                    nextSlide();
+                }
+                if (diffX < -75) {
+                    // Swipe para direita - slide anterior
+                    prevSlide();
+                }
             }
         }
 
