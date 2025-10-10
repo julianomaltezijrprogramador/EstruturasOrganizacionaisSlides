@@ -334,6 +334,371 @@
             display: block;
         }
 
+        .key-takeaway {
+            background: linear-gradient(135deg, var(--fatec-red) 0%, var(--fatec-dark-red) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(139,0,0,0.3);
+        }
+
+        .key-takeaway h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-takeaway p {
+            color: var(--white);
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .references {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            border-left: 4px solid var(--fatec-dark-red);
+        }
+
+        .references p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .image-container {
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            user-select: none;
+            position: fixed;
+            width: 100vw;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 98%;
+            max-width: 1800px;
+            height: 95vh;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            padding: 2.5rem;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            animation: slideIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--fatec-red) 0%, var(--fatec-dark-red) 100%);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139,0,0,0.3);
+        }
+
+        .slide-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .slide-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .slide-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slide-content::-webkit-scrollbar-track {
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .slide-content::-webkit-scrollbar-thumb {
+            background: var(--fatec-red);
+            border-radius: 10px;
+        }
+
+        .slide-content h2 {
+            color: var(--fatec-red);
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid var(--fatec-red);
+            padding-left: 1rem;
+        }
+
+        .slide-content h3 {
+            color: var(--fatec-dark-red);
+            font-size: 1.6rem;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        .slide-content p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            color: var(--fatec-gray);
+        }
+
+        .slide-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .slide-content li {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 0.6rem;
+            color: var(--fatec-gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(139,0,0,0.1) 0%, rgba(107,0,0,0.05) 100%);
+            border-left: 4px solid var(--fatec-red);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--fatec-red);
+            font-size: 1.2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--fatec-red);
+        }
+
+        .card h4 {
+            color: var(--fatec-red);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: var(--fatec-red);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid var(--fatec-red);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .question-box .question {
+            color: var(--fatec-red);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-box .question::before {
+            content: "❓";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .question-box .answer {
+            color: var(--fatec-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 0.8rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .slide-number {
+            color: var(--fatec-gray);
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background: var(--fatec-red);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(139,0,0,0.3);
+        }
+
+        .nav-button:hover {
+            background: var(--fatec-dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(139,0,0,0.4);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--fatec-red);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .timer {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(139,0,0,0.9);
+            color: var(--white);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .authors-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .author-item {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1rem;
+            border-left: 3px solid var(--fatec-red);
+        }
+
+        .big-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--fatec-red);
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .emoji-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
         @media (max-width: 768px) {
             body {
                 position: fixed;
@@ -741,6 +1106,10 @@
                 
                 <p><strong>TI deixou de ser apenas suporte operacional!</strong></p>
                 
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=300&fit=crop" alt="Equipe de tecnologia">
+                </div>
+                
                 <div class="highlight-box">
                     <p>Hoje, a Tecnologia da Informação é um <strong>ativo estratégico</strong> essencial para a competitividade das empresas.</p>
                 </div>
@@ -767,7 +1136,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <div class="slide-number">Slide 2 de 12</div>
+                <div class="slide-number">Slide 2 de 13</div>
                 <div class="navigation">
                     <button class="nav-button" onclick="prevSlide()">← Anterior</button>
                     <button class="nav-button" onclick="nextSlide()">Próximo →</button>
@@ -786,6 +1155,10 @@
                 
                 <div class="highlight-box">
                     <p><strong>Artigo analisado:</strong> "Análise da Relação entre a Estrutura Organizacional e o Desempenho Operacional na Prestação de Serviços de TI de Alto Valor Agregado" (GIRALDELI; PICCHIAI, 2015)</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=300&fit=crop" alt="Pesquisa e metodologia">
                 </div>
 
                 <div class="big-number">4</div>
@@ -813,7 +1186,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <div class="slide-number">Slide 3 de 12</div>
+                <div class="slide-number">Slide 3 de 13</div>
                 <div class="navigation">
                     <button class="nav-button" onclick="prevSlide()">← Anterior</button>
                     <button class="nav-button" onclick="nextSlide()">Próximo →</button>
@@ -1295,10 +1668,67 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <div class="slide-number">Slide 12 de 12</div>
+                <div class="slide-number">Slide 12 de 13</div>
                 <div class="navigation">
                     <button class="nav-button" onclick="prevSlide()">← Anterior</button>
-                    <button class="nav-button" onclick="nextSlide()" disabled>Próximo →</button>
+                    <button class="nav-button" onclick="nextSlide()">Próximo →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: REFERÊNCIAS -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1>📚 Referências Bibliográficas</h1>
+                <p>Fundamentação teórica do trabalho</p>
+            </div>
+            <div class="slide-content">
+                <h2>Fontes Consultadas</h2>
+                
+                <div class="references">
+                    <p><strong>GIRALDELI, C. G.; PICCHIAI, D.</strong> Análise da relação entre a estrutura organizacional e o desempenho operacional na prestação de serviços de TI de alto valor agregado. <strong>Revista Eletrônica de Estratégia & Negócios</strong>, v. 8, n. 3, p. 206–219, 2015.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>CHIAVENATO, Idalberto.</strong> <em>Introdução à teoria geral da administração.</em> 9. ed. São Paulo: Manole, 2014.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>DAFT, Richard L.</strong> <em>Organizações: teoria e projetos.</em> 11. ed. São Paulo: Cengage Learning, 2015.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>FAYOL, Henri.</strong> <em>Administração industrial e geral.</em> 10. ed. São Paulo: Atlas, 1990.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>MINTZBERG, Henry.</strong> <em>Criando organizações eficazes: estruturas em cinco configurações.</em> 2. ed. São Paulo: Atlas, 2003.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>ROBBINS, Stephen P.; JUDGE, Timothy A.; SOBRAL, Filipe.</strong> <em>Comportamento organizacional: teoria e prática no contexto brasileiro.</em> 14. ed. São Paulo: Pearson Prentice Hall, 2010.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>SOBRAL, Filipe; PECI, Alketa.</strong> <em>Administração: teoria e prática no contexto brasileiro.</em> 2. ed. São Paulo: Pearson Education do Brasil, 2013.</p>
+                </div>
+
+                <div class="references">
+                    <p><strong>TAYLOR, Frederick Winslow.</strong> <em>Princípios de administração científica.</em> 8. ed. São Paulo: Atlas, 1990.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h4 style="color: var(--fatec-red); margin-bottom: 1rem;">📖 Base Teórica Utilizada</h4>
+                    <p><strong>Teorias Clássicas:</strong> Fayol (hierarquia, autoridade) e Taylor (padronização, controle)</p>
+                    <p><strong>Teorias Neoclássicas:</strong> Drucker (gestão por objetivos, descentralização)</p>
+                    <p><strong>Teorias Contemporâneas:</strong> Contingência (adequação ao contexto) e Sistemas</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="slide-number">Slide 13 de 13</div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="prevSlide()">← Anterior</button>
+                    <button class="nav-button" onclick="nextSlide()" disabled>Fim</button>
                 </div>
             </div>
         </div>
@@ -1307,7 +1737,7 @@
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+        const totalSlides = 13;
         let startTime = Date.now();
         let timerInterval;
 
