@@ -335,7 +335,7 @@
             .slide {
                 width: 100%;
                 height: 100vh;
-                padding: 1rem 1rem 0 1rem;
+                padding: 1rem 0.8rem 0 0.8rem;
                 border-radius: 0;
                 max-width: 100%;
                 display: flex;
@@ -360,6 +360,7 @@
 
             .slide-content {
                 padding-right: 0.5rem;
+                padding-left: 0;
                 flex: 1;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
@@ -496,7 +497,9 @@
 
             .slide-footer {
                 margin-top: 0;
-                padding: 0.8rem 1rem;
+                margin-left: -0.8rem;
+                margin-right: -0.8rem;
+                padding: 0.8rem 0.8rem;
                 border-top: 2px solid var(--light-gray);
                 flex-direction: row;
                 gap: 0.5rem;
@@ -505,29 +508,29 @@
                 flex-shrink: 0;
                 position: sticky;
                 bottom: 0;
-                left: 0;
-                right: 0;
+                width: 100vw;
+                box-sizing: border-box;
             }
 
             .slide-number {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 white-space: nowrap;
-                min-width: 70px;
+                min-width: 60px;
                 flex-shrink: 0;
             }
 
             .navigation {
                 display: flex;
-                gap: 0.5rem;
+                gap: 0.4rem;
                 flex: 1;
                 justify-content: flex-end;
             }
 
             .nav-button {
-                padding: 0.7rem 1rem;
+                padding: 0.65rem 0.9rem;
                 font-size: 0.85rem;
                 white-space: nowrap;
-                min-width: 90px;
+                min-width: 85px;
                 flex-shrink: 0;
             }
 
@@ -557,7 +560,7 @@
 
         @media (max-width: 480px) {
             .slide {
-                padding: 0.8rem 0.8rem 0 0.8rem;
+                padding: 0.8rem 0.5rem 0 0.5rem;
             }
 
             .slide-header {
@@ -586,18 +589,20 @@
             }
 
             .slide-footer {
-                padding: 0.6rem 0.8rem;
+                padding: 0.7rem 0.6rem;
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
             }
 
             .nav-button {
-                padding: 0.6rem 0.8rem;
+                padding: 0.6rem 0.7rem;
                 font-size: 0.8rem;
-                min-width: 85px;
+                min-width: 80px;
             }
 
             .slide-number {
-                font-size: 0.8rem;
-                min-width: 65px;
+                font-size: 0.75rem;
+                min-width: 55px;
             }
 
             .timer {
@@ -620,7 +625,7 @@
         @media (max-width: 768px) and (orientation: landscape) {
             .slide {
                 height: 100vh;
-                padding: 0.8rem 1rem 0 1rem;
+                padding: 0.6rem 0.8rem 0 0.8rem;
             }
 
             .slide-header {
@@ -642,11 +647,13 @@
             }
 
             .slide-footer {
-                padding: 0.6rem 1rem;
+                padding: 0.6rem 0.8rem;
+                margin-left: -0.8rem;
+                margin-right: -0.8rem;
             }
 
             .nav-button {
-                padding: 0.5rem 0.9rem;
+                padding: 0.5rem 0.8rem;
                 font-size: 0.8rem;
             }
         }
