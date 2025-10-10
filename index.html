@@ -335,16 +335,18 @@
             .slide {
                 width: 100%;
                 height: 100vh;
-                padding: 1rem;
-                padding-bottom: 0.5rem;
+                padding: 1rem 1rem 0 1rem;
                 border-radius: 0;
                 max-width: 100%;
+                display: flex;
+                flex-direction: column;
             }
 
             .slide-header {
                 padding: 1rem 1.2rem;
                 margin-bottom: 1rem;
                 border-radius: 10px;
+                flex-shrink: 0;
             }
 
             .slide-header h1 {
@@ -358,8 +360,10 @@
 
             .slide-content {
                 padding-right: 0.5rem;
-                max-height: calc(100vh - 240px);
+                flex: 1;
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 1rem;
             }
 
             .slide-content h2 {
@@ -440,7 +444,7 @@
 
             .question-box .question {
                 font-size: 1.05rem;
-                margin-bottom: 0.8rem;
+                margin-bottom: 0;
             }
 
             .question-box .question::before {
@@ -491,21 +495,25 @@
             }
 
             .slide-footer {
-                margin-top: 0.8rem;
-                padding-top: 0.8rem;
-                padding-bottom: 0.5rem;
+                margin-top: 0;
+                padding: 0.8rem 1rem;
+                border-top: 2px solid var(--light-gray);
                 flex-direction: row;
                 gap: 0.5rem;
                 align-items: center;
                 background: var(--white);
-                position: relative;
-                z-index: 10;
+                flex-shrink: 0;
+                position: sticky;
+                bottom: 0;
+                left: 0;
+                right: 0;
             }
 
             .slide-number {
                 font-size: 0.85rem;
                 white-space: nowrap;
-                min-width: 80px;
+                min-width: 70px;
+                flex-shrink: 0;
             }
 
             .navigation {
@@ -516,20 +524,15 @@
             }
 
             .nav-button {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
                 white-space: nowrap;
-                min-width: 100px;
+                min-width: 90px;
+                flex-shrink: 0;
             }
 
             .progress-bar {
                 height: 4px;
-            }
-
-            /* Ajustes para scrolling no mobile */
-            .slide-content {
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
             }
 
             /* Ocultar scrollbar mas manter funcionalidade */
@@ -540,6 +543,7 @@
             /* Melhorar área de toque dos botões */
             button {
                 -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
             }
 
             /* Ajustar tabelas para mobile */
@@ -553,7 +557,11 @@
 
         @media (max-width: 480px) {
             .slide {
-                padding-bottom: 0.3rem;
+                padding: 0.8rem 0.8rem 0 0.8rem;
+            }
+
+            .slide-header {
+                padding: 0.8rem 1rem;
             }
 
             .slide-header h1 {
@@ -562,10 +570,6 @@
 
             .slide-header p {
                 font-size: 0.8rem;
-            }
-
-            .slide-content {
-                max-height: calc(100vh - 220px);
             }
 
             .slide-content h2 {
@@ -581,15 +585,19 @@
                 font-size: 0.95rem;
             }
 
+            .slide-footer {
+                padding: 0.6rem 0.8rem;
+            }
+
             .nav-button {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-                min-width: 90px;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+                min-width: 85px;
             }
 
             .slide-number {
                 font-size: 0.8rem;
-                min-width: 70px;
+                min-width: 65px;
             }
 
             .timer {
@@ -606,50 +614,40 @@
                 font-size: 0.75rem;
                 padding: 0.5rem 0.3rem;
             }
-
-            .slide-footer {
-                margin-top: 0.5rem;
-                padding-top: 0.6rem;
-                padding-bottom: 0.3rem;
-            }
         }
 
         /* Orientação paisagem no mobile */
         @media (max-width: 768px) and (orientation: landscape) {
             .slide {
                 height: 100vh;
-                overflow-y: auto;
-                padding-bottom: 0.5rem;
+                padding: 0.8rem 1rem 0 1rem;
             }
 
             .slide-header {
-                padding: 0.8rem 1rem;
+                padding: 0.6rem 1rem;
+                margin-bottom: 0.8rem;
             }
 
             .slide-header h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             .slide-header p {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .timer {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.7rem;
-            }
-
-            .slide-content {
-                max-height: calc(100vh - 200px);
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
             }
 
             .slide-footer {
-                padding-bottom: 0.5rem;
+                padding: 0.6rem 1rem;
             }
 
             .nav-button {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
+                padding: 0.5rem 0.9rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -1139,34 +1137,27 @@
                 <p>Antecipando suas dúvidas</p>
             </div>
             <div class="slide-content">
-                <h2>Dúvidas Comuns Respondidas</h2>
+                <h2>Dúvidas Comuns para Discussão</h2>
                 
                 <div class="question-box">
                     <div class="question">1. Estruturas mecanicistas são ruins?</div>
-                    <div class="answer">
-                        <strong>Não!</strong> Elas têm seu lugar. São ideais para: treinar profissionais juniores, contextos onde TI não é estratégica, situações que exigem previsibilidade e controle rigoroso. O problema é usá-las no contexto errado.
-                    </div>
                 </div>
 
                 <div class="question-box">
                     <div class="question">2. Por que não usar sempre estruturas orgânicas se são melhores?</div>
-                    <div class="answer">
-                        Porque exigem: <strong>1)</strong> Profissionais experientes (mais caros); <strong>2)</strong> Maturidade da equipe; <strong>3)</strong> Orçamento maior; <strong>4)</strong> Cultura organizacional apropriada. Nem toda empresa tem esses recursos.
-                    </div>
                 </div>
 
                 <div class="question-box">
                     <div class="question">3. Como desenvolver profissionais juniores se não usarmos estruturas hierárquicas?</div>
-                    <div class="answer">
-                        <strong>Excelente pergunta!</strong> Estruturas mecanicistas são ferramentas de <strong>formação</strong>. Juniores precisam de direcionamento, processos claros e supervisão. Com o tempo, à medida que ganham experiência, podem migrar para estruturas mais orgânicas.
-                    </div>
                 </div>
 
                 <div class="question-box">
                     <div class="question">4. Uma empresa pode ter ambas as estruturas?</div>
-                    <div class="answer">
-                        <strong>Sim!</strong> Muitas organizações usam <strong>estruturas híbridas</strong>: áreas estratégicas de TI com estrutura orgânica, e áreas de suporte com estrutura mecanicista. O segredo é adequar a estrutura ao contexto de cada área.
-                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <p style="text-align: center; font-size: 1.2rem;"><strong>💬 Estas são perguntas estratégicas que demonstram compreensão profunda do tema.</strong></p>
+                    <p style="text-align: center;">Vamos discutir cada uma delas!</p>
                 </div>
             </div>
             <div class="slide-footer">
